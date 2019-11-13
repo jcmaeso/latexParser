@@ -1,0 +1,59 @@
+\documentclass[11pt]{article} % Documento de tipo "artículo", con fuente por defecto de 11pt
+\usepackage{graphicx}
+
+\usepackage[utf8]{inputenc}   % Permite el uso de caracteres UTF8
+\usepackage[T1]{fontenc}      % Usa fuentes "ricas", que facilitan el copy-paste en la salida
+\usepackage[spanish]{babel}   % Traducción al español de meses, funciones matemáticas, etc.
+\usepackage{amsmath}          % Herramientas matemáticas extra, como los entornos "align" y "gather"
+\usepackage{graphicx}         % Permite la inserción de imágenes
+\usepackage{hyperref}         % Convierte las referencias en hiperenlaces y añade el comando \url
+\usepackage{xcolor}           % Permite cambiar el color del texto
+\usepackage{tgpagella}        % Fuente TeX Gyre Pagella, usada en todo el documento
+\usepackage{fancyhdr}         % Para personalizar las cabeceras y el pie de página
+\usepackage[
+  headheight=3cm,
+  top=4.5cm,
+  headsep=1.5cm,
+  bottom=3cm
+]{geometry}                   % Establece márgenes personalizados
+
+\graphicspath{{./Figures/}}
+
+% Colores definidos en la guía de estilo del IEEE
+% (https://brand-experience.ieee.org/guidelines/digital/style-guide/branding-visual-elements/)
+\definecolor{ieee-blue}{RGB}{0, 98, 155}
+\definecolor{ieee-gray}{RGB}{117, 120, 123}
+
+% Título y fecha del documento
+\newcommand{\theplace}{INTRODUCIR CIUDAD AQUÍ (con Title Case)}
+\newcommand{\thedate}{INTRODUCIR FECHA AQUÍ}
+\newcommand{\thetitle}{INTRODUCIR TÍTULO AQUÍ (con Title Case)}
+
+% Ajustes de la cabecera y el pie de página
+\pagestyle{fancy}
+\fancyhf{} % Elimina estilos de pie y cabecera por defecto
+\lhead{\includegraphics[height=40pt]{Figures/LogoIEEEsb.eps}}
+\rhead{
+  \color{ieee-blue}
+  Rama Universitaria del IEEE de Madrid
+  \\[4pt]
+  \color{ieee-gray}
+  \textit{\thetitle} \\
+  \theplace, \thedate
+}
+\cfoot{
+  \scriptsize
+  \textsc{Rama Universitaria del IEEE de Madrid} \\
+  Escuela Técnica Superior de Ingenieros de Telecomunicación - Universidad Politécnica de Madrid \\
+  Av. Complutense, 30 (A101.4-L), 28040 Madrid / 91 067 2681 / ieeesb.es}
+\renewcommand{\headrulewidth}{0pt} % Quita la línea por defecto debajo de la cabecera
+
+
+\begin{document}
+\begin{center}
+  \bf \LARGE
+  \MakeUppercase{\thetitle}
+\end{center}
+
+INTRODUCIR CONTENIDO AQUÍ
+\end{document}
