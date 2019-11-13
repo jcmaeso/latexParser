@@ -8,12 +8,32 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"text/template"
 )
 
 
 var workingLatexDir string = ".\\latex\\latexResources\\"
 var mainLatexFile string = ".\\latex\\latexResources\\main.tex"
 var outputDirectory string = "\\latexOutput"
+var templatesDirectory string = ".\\latex\\LatexTemplates\\"
+
+func ParseFileWithTemplate(sections map[string]string)error{
+	//Read Template File
+	tpl, err := template.ParseFiles(templatesDirectory+"latex.tmpl")
+	if err != nil {
+		log.Fatal(err)
+		return err
+	}
+	//Create Output File
+	f, err := os.Create(mainLatexFile)
+	if err != nil {
+		return nil;
+	}
+	defer f.Close()
+
+	tpl.Execute(f, sections)
+	return nil
+}
 
 func CompilePdf(filename string)  {
 	cmd :=  exec.Command("latexmk","-pdf","-cd",mainLatexFile)
